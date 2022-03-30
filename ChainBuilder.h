@@ -47,13 +47,25 @@ namespace ChainBuilder
 		Parameter () = default;
 	};
 
-	template<typename T > class ClassBuilder : public Parameter<T , T>
+	template<typename T1,typename T2 = std::string> class ClassBuilder : public Parameter<T1 , T1>
 	{
 	public:
-		shared_ptr<T> Build ()
+
+		struct IError 
 		{
-			auto data = Parameter<T , T>::getData ();
+			T2 m_error;
+		};
+
+		shared_ptr<T1> Build ()
+		{
+			auto data = Parameter<T1 , T1>::getData ();
 			return data.build ();
+		}
+
+		shared_ptr<T1> Build ( IError& error )
+		{
+			auto data = Parameter<T1 , T1>::getData ();
+			return data.build ( error );
 		}
 	};
 }

@@ -7,8 +7,12 @@
 
 int main ()
 {
-	auto circle = Circle::Builder ().centerX ( 10 ).centerY ( 20 ).radius ( 30 ).Build ();
-	cout << circle->toString () << endl;
+	Circle::BuilderError berr;
+	auto circle = Circle::Builder ().centerX ( 10 ).centerY ( 20 ).radius ( -30 ).Build ( berr );
+	if ( circle )
+		cout << circle->toString () << endl;
+	else
+		cout << berr.m_error << endl;
 
 	auto box = Box::Builder ().Width ( 100 ).Height ( 50 ).Depth ( 100 );
 	cout << box.toString () << " Volume = " << box.getVolume () << endl;

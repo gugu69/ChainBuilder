@@ -47,8 +47,9 @@ namespace ChainBuilder
 		Parameter () = default;
 	};
 
-	template<typename T > struct ClassBuilder : Parameter<T , T>
+	template<typename T > class ClassBuilder : Parameter<T , T>
 	{
+	public:
 		shared_ptr<T> Build ()
 		{
 			auto data = Parameter<T , T>::getData ();

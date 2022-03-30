@@ -11,7 +11,7 @@
 		Circle () = default;
 	
 		// But we must trust in few good friends!
-		template <typename T> friend struct ClassBuilder;
+		template <typename T> friend class ClassBuilder;
 		template <typename T1 , typename T2> friend class Parameter;
 	
 	protected:

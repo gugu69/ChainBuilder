@@ -61,6 +61,7 @@
 			if ( m_r < 0 )
 				return nullptr;
 	
+			// Because make_shared can't be anyone's friend
 			shared_ptr<Circle> circle;
 			circle.reset ( new Circle () );
 	

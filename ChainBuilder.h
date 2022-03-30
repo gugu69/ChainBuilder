@@ -47,7 +47,7 @@ namespace ChainBuilder
 		Parameter () = default;
 	};
 
-	template<typename T > class ClassBuilder : Parameter<T , T>
+	template<typename T > class ClassBuilder : public Parameter<T , T>
 	{
 	public:
 		shared_ptr<T> Build ()

@@ -21,8 +21,8 @@ Everything is in a single header file (that's what I love more...). The usage is
 		Circle () = default;
 	
 		// But we must trust in few good friends!
-		template <typename T> friend class TypeBuilder;
-		template <typename T> friend struct ClassBuilder;
+		template <typename T> friend class ClassBuilder;
+		template <typename T1 , typename T2> friend class Parameter;
 	
 	protected:
 	
@@ -71,7 +71,9 @@ Everything is in a single header file (that's what I love more...). The usage is
 			if ( m_r < 0 )
 				return nullptr;
 	
-			auto circle = TypeBuilder<Circle> ().build ();
+			// Because make_shared can't be anyone's friend
+			shared_ptr<Circle> circle;
+			circle.reset ( new Circle () );
 	
 			// Just in case something went wrong
 			if ( !circle )

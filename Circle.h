@@ -11,8 +11,8 @@
 		Circle () = default;
 	
 		// But we must trust in few good friends!
-		template <typename T> friend class TypeBuilder;
 		template <typename T> friend struct ClassBuilder;
+		template <typename T1 , typename T2> friend class Parameter;
 	
 	protected:
 	
@@ -61,7 +61,8 @@
 			if ( m_r < 0 )
 				return nullptr;
 	
-			auto circle = TypeBuilder<Circle> ().build ();
+			shared_ptr<Circle> circle;
+			circle.reset ( new Circle () );
 	
 			// Just in case something went wrong
 			if ( !circle )

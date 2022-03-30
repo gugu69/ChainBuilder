@@ -5,17 +5,6 @@ using namespace std;
 
 namespace ChainBuilder
 {
-	template <typename T> class TypeBuilder
-	{
-		shared_ptr<T> temp;
-	public:
-		const shared_ptr<T>& build ()
-		{
-			temp.reset ( new T () );
-			return temp;
-		}
-	};
-
 	template <typename T1 , typename T2> class Parameter
 	{
 		shared_ptr<T1> m_next;
@@ -26,7 +15,7 @@ namespace ChainBuilder
 		const shared_ptr<T2>& getLast ()
 		{
 			if ( !m_last )
-				m_last = TypeBuilder<T2> ().build ();
+				m_last.reset ( new T2 () );
 
 			return m_last;
 		}

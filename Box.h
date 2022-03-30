@@ -6,8 +6,7 @@ using namespace ChainBuilder;
 
 class Box
 {
-	template <typename T> friend class TypeBuilder;
-	//template <typename T1 , typename T2> friend class Parameter;
+	template <typename T1 , typename T2> friend class Parameter;
 
 	Box () = default;
 

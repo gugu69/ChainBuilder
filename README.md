@@ -1,12 +1,17 @@
 # Chain Builder with mandatory parameters.
 
-That's my implementation of the *Builder Pattern* but with named and mandatory parameters, just like this:
+This is what I were looking for:
 
     auto aCircle = Circle::Builder ().centerX ( 100 ).centerY ( 50 ).radius ( 25 ).Build ();
+    
+Is a sort of revised *Builder Pattern* with some extra features:
+
+    - They are all mandatory parameters.
+    - The sequences is predetermined.
 
 ## Description
 
-Everything is in a single header file (that's what I love more...). The usage is quite simple, just have a look of thise:
+Everything is in a single header file (that's what I love more...). The usage is quite simple.
 
 	#pragma once
 	#include <sstream>
@@ -122,21 +127,9 @@ Everything is in a single header file (that's what I love more...). The usage is
 * F5
 * ahahah, ok stop joking!
 
-## Dig into the code
-
-Maybe you'll find interesting to have a look at the **class TypeBuilder**. This is how I solved the problem to have shared pointer of private class.
-
 ## Authors
 
 Just me.
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
 
 ## License
 

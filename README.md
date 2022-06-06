@@ -1,6 +1,6 @@
 # Chain Builder with mandatory parameters.
 
-This is what I were looking for:
+This is what I was looking for:
 
     auto aCircle = Circle::Builder ().centerX ( 100 ).centerY ( 50 ).radius ( 25 ).Build ();
     
